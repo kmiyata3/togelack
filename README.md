@@ -5,7 +5,7 @@
 Slack Summary Service (like togetter).
 
 ## How to deploy
-- [SlackのTogetter風アプリ「Togelack」をHerokuにデプロイする - Qiita](http://qiita.com/ru_shalm/items/35100b527877cfe09b5e)
+- [The way to deploy Chirpstory for Slack onto Heroku - Qiita (in Japanese)](http://qiita.com/ru_shalm/items/35100b527877cfe09b5e)
 
 ## env
 ### requirement

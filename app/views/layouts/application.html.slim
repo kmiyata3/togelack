@@ -14,21 +14,21 @@ html
     nav.uk-navbar
       .uk-container.uk-container-center
         a.uk-navbar-brand href='/'
-          | Togelack - Slackまとめサイト
+          | Togelack - Stories from Slack
 
         .uk-navbar-flip
           ul.uk-navbar-nav
             - if @current_user
               li
                 a href=new_summary_path
-                  | まとめの作成
+                  | Create a story
               li
                 a href=session_path data-method='delete'
-                  | ログアウト
+                  | Logout
             - else
               li
                 a href='/auth/slack'
-                  | ログイン
+                  | Login
 
     = yield
 

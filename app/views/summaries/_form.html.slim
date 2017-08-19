@@ -4,7 +4,7 @@
     .uk-width-1-2
       .uk-panel.uk-panel-box style='height: 500px;'
         .uk-panel-title style='line-height: 30px;'
-          | プレビュー（{{ messages.length }} / 1000）
+          | Preview({{ messages.length }} / 1000)
         ul.uk-list.editor-main-list style="height: 450px; overflow-y: scroll;"
           template v-repeat='messages'
             li.slack-message-splitter v-dropzone='dropMessage: insertMessage(messages, loadMessages, $index, $droptag, $dropdata)'
@@ -24,7 +24,7 @@
 
           li.uk-comment.drag-message v-dropzone='dropMessage: addMessage(messages, loadMessages, $droptag, $dropdata)' style='height: 48px; border: 2px dashed #ccc; margin: 10px;'
             .uk-text-muted.uk-text-center style='line-height: 48px;'
-              | 右パネルからメッセージをドラッグ&ドロップ
+              | Drug and Drop from right to left
 
     .uk-width-1-2
       .uk-panel.uk-panel-box style='height: 500px;' v-dropzone='dropMessage: dropMessage(messages, $droptag, $dropdata)'
@@ -37,7 +37,7 @@
               i.fa.fa-spinner.fa-spin v-if='nowLoading'
 
         p.uk-text-large.uk-text-muted style="{{loadMessages.length > 0 ? 'display: none;' : ''}}"
-          | 発言のパーマリンクを入力してください
+          | Copy the link of the parent message
 
         ul.uk-list style="height: 450px; overflow-y: scroll; {{loadMessages.length == 0 ? 'display: none;' : ''}}"
           li.slack-message.drag-message v-repeat='loadMessages' v-draggable='dropMessage: {index: $index, type: "loadMessage"}'
@@ -57,14 +57,14 @@
 
   .uk-margin-top.uk-width-2-3.uk-container-center
     .uk-form.uk-panel.uk-panel-box
-      input.js-edit-app-title.uk-width-1-1.uk-form-large name='title' type='text' placeholder='まとめのタイトル' v-model='title' v-attr='readonly: nowSubmitting'
-      textarea.js-edit-app-description.uk-width-1-1.uk-margin-top style='height: 5em;' name='description' placeholder='まとめの説明文(省略可)' v-model='description' v-attr='readonly: nowSubmitting'
+      input.js-edit-app-title.uk-width-1-1.uk-form-large name='title' type='text' placeholder='The title of story' v-model='title' v-attr='readonly: nowSubmitting'
+      textarea.js-edit-app-description.uk-width-1-1.uk-margin-top style='height: 5em;' name='description' placeholder='Description(Optional)' v-model='description' v-attr='readonly: nowSubmitting'
 
   br
 
   .uk-text-center.uk-margin-top
     button.uk-button.uk-button-large.uk-button-primary v-on='click: onSubmit($event, title, description, messages)' v-attr='disabled: nowSubmitting'
-      | まとめを投稿する
+      | Submit
 
 - content_for :javascript do
   javascript:

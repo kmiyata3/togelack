@@ -3,13 +3,13 @@
     | Togelack
   p
     |
-      #{ENV['SLACK_TEAM_NAME']} Slackのまとめサイトです。<br>
-      ログインするとまとめを作成できます。
+      #{ENV['SLACK_TEAM_NAME']} Pickup stories from Slack<br>
+      You can create stories once you logged in to Slack.
 
 .uk-panel.uk-panel-box.uk-margin-top
   form.uk-form.uk-grid action='/summaries/list' v-on='submit: onSearch($event, search, loadMessages)'
     .uk-width-3-4
-      input.uk-width-1-1 type='text' name='keyword' placeholder='検索' v-model='search' v-attr='readonly: nowLoading'
+      input.uk-width-1-1 type='text' name='keyword' placeholder='Search' v-model='search' v-attr='readonly: nowLoading'
     .uk-width-1-4
       button.uk-button.uk-width-1-1 type='submit' v-attr='disabled: nowLoading'
         i.fa.fa-eyedropper v-if='!nowLoading'
@@ -18,7 +18,7 @@
 .uk-panel.uk-panel-box.uk-margin-top
   .uk-panel-title
     a href=list_summaries_path
-      | 最近作成されたまとめ
+      | Recently created
   ul.uk-nav
     - Summary.newest.limit(20).each do |summary|
       li
@@ -26,7 +26,7 @@
           = summary.title
     li.uk-text-right
       a href=list_summaries_path
-        | まとめ一覧
+        | Story list
         | &nbsp;
         i.fa.fa-arrow-right
 

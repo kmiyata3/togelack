@@ -47,15 +47,15 @@
           li
             a href=edit_summary_path(summary)
               i.fa.fa-pencil
-              | &nbsp;編集
+              | &nbsp;Edit
           li
-            a href=summary_path(summary) data-method='delete' data-confirm='本当に削除してもよろしいですか？'
+            a href=summary_path(summary) data-method='delete' data-confirm='Are you sure to delete?'
               i.fa.fa-remove
-              | &nbsp;削除
+              | &nbsp;Delete
         - elsif @current_user && @current_user.admin?
           li
-            a href=summary_path(summary) data-method='delete' data-confirm='管理者特権で削除してもよろしいですか？'
+            a href=summary_path(summary) data-method='delete' data-confirm='Are you sure to execute administrative delete?'
               i.fa.fa-remove
-              | &nbsp;管理者削除
+              | &nbsp;Administrative Delete
 
 br
