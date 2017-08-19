@@ -11,7 +11,7 @@ module SlackSupport
       @client.chat_postMessage({
                                    channel: channel_id,
                                    username: 'togelack',
-                                   text: "<@#{user.uid}> が『<#{url}|#{ERB::Util.html_escape title}>』についてまとめました。\n<#{ERB::Util.html_escape url}>",
+                                   text: "<@#{user.uid}> posted a story about \"<#{url}|#{ERB::Util.html_escape title}>\" \n<#{ERB::Util.html_escape url}>",
                                    parse: 'none',
                                    unfurl_links: true,
                                    icon_url: icon.match(/\Ahttp/) ? icon : nil,

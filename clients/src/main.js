@@ -53,7 +53,7 @@ class EditApp extends Vue {
                             break;
                         case 'loadMessage':
                             if (messages.length >= 1000) {
-                                alert('これ以上追加できません')
+                                alert('Cannot add anymore')
                                 return
                             }
                             t = loadMessages[dropdata.index]
@@ -71,7 +71,7 @@ class EditApp extends Vue {
                             break
                         case 'loadMessage':
                             if (messages.length >= 1000) {
-                                alert('これ以上追加できません')
+                                alert('Cannot add anymore')
                                 return
                             }
                             messages.push(loadMessages[dropdata.index])
@@ -100,7 +100,7 @@ class EditApp extends Vue {
                             },
                             error: (resp) => {
                                 this.nowLoading = false
-                                alert('取得できませんでした O_o')
+                                alert('Failed to get messages')
                             }
                         })
                     }
@@ -111,15 +111,15 @@ class EditApp extends Vue {
                     })
                     e.preventDefault()
                     if (messageIDs.length == 0) {
-                        alert('まとめるメッセージを選択してください。')
+                        alert('Select a message to make a story')
                         return
                     }
                     if (`${title}`.length < 1 || `${title}`.length > 64) {
-                        alert('タイトルを1〜64文字で入力してください。')
+                        alert('Input the title within 64 chars')
                         return
                     }
                     if (`${description}`.length > 1024) {
-                        alert('説明文を1024文字以内で入力してください。')
+                        alert('Input the description within 1024 chars')
                         return
                     }
                     this.nowSubmitting = true
@@ -137,7 +137,7 @@ class EditApp extends Vue {
                         },
                         error: () => {
                             this.nowSubmitting = false
-                            alert('投稿できませんでした')
+                            alert('Failed to submit')
                         }
                     })
                 }
